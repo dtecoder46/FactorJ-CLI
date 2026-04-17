@@ -49,4 +49,8 @@ A CLI tool to help make finding factors of numbers easier
     1. Write sums and result to JSON file
     1. Python
         1. Parse JSON file
-        1. Send results to SQLite 
+        1. Send results to SQLite
+
+# References
+
+[Java: Getting Started with Java](https://dev.java/learn/getting-started/#compiling-running) 
