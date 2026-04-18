@@ -10,7 +10,7 @@ A CLI tool to help make finding factors of numbers easier
 
 # Algorithm
 
-1. 1. Global scope
+1. Global scope
     1. Request values from SQLite database
     2. Try
         1. Ask the user for an integer
