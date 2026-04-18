@@ -19,18 +19,20 @@ public class Main {
 		// Global scope
 		
 		Scanner input = new Scanner(System.in);
+		int chosenInput = 0;
 
-		print("Enter an integer (no decimals or negative numbers): ");
-		int chosenNumber = input.nextInt();
-		input.nextLine();
+                try {
+			print("Enter an integer (do not enter decimals, negative numbers will be turned positive via absolute value): ");
+                        chosenInput = input.nextInt();
+                        input.nextLine();
+                }
+                catch(Exception e) {
+			print("Invalid input, do not enter decimals");
+                }
 
-		while(chosenNumber < 0) {
-			print("Invalid input. Enter an integer (no decimals or negative numbers): ");
-	                chosenNumber = input.nextInt();
-        	        input.nextLine();
-		}
+		int chosenAbsolute = Math.abs(chosenInput);
 
-		print("" + chosenNumber);	
+		print("" + chosenAbsolute);	
 	}
 
 	/**
@@ -43,3 +45,4 @@ public class Main {
 		System.out.println(text);
 	}
 }
+

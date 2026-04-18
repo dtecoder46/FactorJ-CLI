@@ -10,47 +10,51 @@ A CLI tool to help make finding factors of numbers easier
 
 # Algorithm
 
-1. Global scope
+1. 1. Global scope
     1. Request values from SQLite database
-    1. Ask the user for an integer
-        1. If the input integer exists in the database
-            1. Print the result value and factors
-        1. If negative or contains decimal places
-            1. Send an error message
-        1. Otherwise
-            1. Call the recursive method
-    1. Print out the factors of the number
-1. Recursive method
+    2. Try
+        1. Ask the user for an integer
+    3. Except if the input is a decimal (input mismatcherror)
+        1. Print an error message
+    4. Take the absolute value to account for negatives
+    5. If the input integer exists in the database
+        1. Print the result value and factors
+    6. Otherwise
+        1. Call the recursive method
+    7. Print out the factors of the number
+2. Recursive method
     1. Define a list of factors
-    1. If the integer is even
+    2. If the integer is even
         1. Add 2 to the factors list
-        1. Calculate the division and use it in the recursive function call
-    1. Otherwise  if the integer is divisible by 3
+        2. Calculate the division and use it in the recursive function call
+    3. Otherwise if the integer is divisible by 3
         1. Add 2 to the factors list
-        1. Calculate the division and use it in the recursive function call
-    1. Otherwise if the integer is divisible by 5
+        2. Calculate the division and use it in the recursive function call
+    4. Otherwise if the integer is divisible by 5
         1. Add 2 to the factors list
-        1. Calculate the division and use it in the recursive function call
-    1. Otherwise if the integer is divisible by 7
+        2. Calculate the division and use it in the recursive function call
+    5. Otherwise if the integer is divisible by 7
         1. Add 7 to the factors list
-        1. Calculate the division and use it in the recursive function call
-    1. Otherwise return 1 and the random integer (prime number)
-    1. If the integer is 1, call the compression method with the list of factors
-1. Compression method
+        2. Calculate the division and use it in the recursive function call
+    6. Otherwise return 1 and the random integer (prime number)
+    7. If the integer is 1, call the compression method with the list of factors
+3. Compression method
     1. Get the factor list length
-    1. Find the middle index
+    2. Find the middle index
         1. Define integers sumOfLeft and sumOfRight
-    1. Loop over the factor list
+    3. Loop over the factor list
         1. If the current index is greater than the middle index
             1. Add the current factor to sumOfRight
-        1. Else
+        2. Else
             1. Add the current factor to sumOfLeft
-1. Long-term storage
+4. Long-term storage
     1. Write sums and result to JSON file
-    1. Python
+    2. Python
         1. Parse JSON file
-        1. Send results to SQLite
+        2. Send results to SQLite
 
 # References
 
 [Java: Getting Started with Java](https://dev.java/learn/getting-started/#compiling-running) 
+[w3Schools Java Tutorial](https://www.w3schools.com/java/default.asp)
+
