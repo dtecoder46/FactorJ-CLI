@@ -36,17 +36,20 @@ A CLI tool to help make finding factors of numbers easier
     5. Otherwise if the integer is divisible by 7
         1. Add 7 to the factors list
         2. Calculate the division and use it in the recursive function call
-    6. Otherwise return 1 and the random integer (prime number)
-    7. If the integer is 1, call the compression method with the list of factors
+    6. Otherwise add 1 and the random integer to the list of factors (prime number)
+    7. If the integer is 1
+        1. Call the compression method with the list of factors
+        2. Return the list returned by the compression method
 3. Compression method
     1. Get the factor list length
     2. Find the middle index
-        1. Define integers sumOfLeft and sumOfRight
+        1. Define integers productOfLeft and productOfRight
     3. Loop over the factor list
         1. If the current index is greater than the middle index
-            1. Add the current factor to sumOfRight
+            1. Multiply the current factor with productOfRight
         2. Else
-            1. Add the current factor to sumOfLeft
+            1. Multiply the current factor with productOfLeft
+    4. Return a list containing productOfLeft and productOfRight
 4. Long-term storage
     1. Write sums and result to JSON file
     2. Python

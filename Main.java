@@ -21,18 +21,37 @@ public class Main {
 		Scanner input = new Scanner(System.in);
 		int chosenInput = 0;
 
-                try {
+        try {
 			print("Enter an integer (do not enter decimals, negative numbers will be turned positive via absolute value): ");
-                        chosenInput = input.nextInt();
-                        input.nextLine();
-                }
-                catch(Exception e) {
+            chosenInput = input.nextInt();
+            input.nextLine();
+        }
+        
+		catch(Exception e) {
 			print("Invalid input, do not enter decimals");
-                }
+        }
 
 		int chosenAbsolute = Math.abs(chosenInput);
 
-		print("" + chosenAbsolute);	
+		int[] factors = factorize(chosenAbsolute);
+
+		print("Factors: " + factors[0] + ", " + factors[1]);	
+	}
+
+	/** 
+	 * A recursive method to determine the factors of a number
+	 * @param number - the number of which to determine factors
+	 * @return factorList - a list of two factors
+	 */
+
+	public static int[] factorize(int number) {
+		int[] factorList = new int[20];
+
+		// Base case: the chosen integer is a prime number
+		factorList[0] = 1;
+		factorList[1] = number;
+
+		return factorList;
 	}
 
 	/**
