@@ -6,6 +6,7 @@
  */
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
 	/**
@@ -33,9 +34,9 @@ public class Main {
 
 		int chosenAbsolute = Math.abs(chosenInput);
 
-		int[] factors = factorize(chosenAbsolute);
+		ArrayList<Integer> factors = factorize(chosenAbsolute);
 
-		print("Factors: " + factors[0] + ", " + factors[1]);	
+		System.out.print(factors);	
 	}
 
 	/** 
@@ -44,13 +45,12 @@ public class Main {
 	 * @return factorList - a list of two factors
 	 */
 
-	public static int[] factorize(int number) {
-		int[] factorList = new int[20];
+	public static ArrayList<Integer> factorize(int number) {
+		ArrayList<Integer> factorList = new ArrayList<Integer>();
 
-		// Base case: the chosen integer is a prime number
-		factorList[0] = 1;
-		factorList[1] = number;
-
+		// Base case: the chosen integer is a prime number, return itself and 1
+		factorList.add(1);
+		factorList.add(number);
 		return factorList;
 	}
 
