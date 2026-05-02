@@ -30,41 +30,59 @@ public class Main {
         
 		catch(Exception e) {
 			print("Invalid input, do not enter decimals");
+			return;
         }
 
 		int chosenAbsolute = Math.abs(chosenInput);
 
 		ArrayList<Integer> factors = factorize(chosenAbsolute);
 
-		System.out.print(factors);	
+		System.out.print(factors);
+
+
 	}
 
 	/** 
 	 * A recursive method to determine the factors of a number
 	 * @param number - the number of which to determine factors
 	 * @return factorList - a list of two factors
+	 * 
+	 * Source: Gemini
+	 * 
+	 * Prompt: 
+	 * "Whenever I run this Java file, 
+	 * the terminal freezes up and the program keeps running. 
+	 * Can you identify the issues with this Java code?"
+	 * 
+	 * Link: https://gemini.google.com/share/6936111e6705
 	 */
 
 	public static ArrayList<Integer> factorize(int number) {
 		ArrayList<Integer> factorList = new ArrayList<Integer>();
 
-		if (number % 2 == 0) { // General case 1: even number
-			factorList.add(2);
-
-			int newNumber = number/2;
-			factorize(newNumber);
-		}
-
-		else if (number == 1) {
-			factorList = condense(factorList);
-		}
-
-		else {
-			// Base case: the chosen integer is a prime number, return itself and 1
+		// Base Case: if number is 1, return a list with 1
+		if (number <= 1) {
 			factorList.add(1);
-			factorList.add(number);
+			return factorList;
 		}
 
+		// Check for the smallest prime factor
+		int divisor = -1;
+		if (number % 2 == 0) divisor = 2;
+		else if (number % 3 == 0) divisor = 3;
+		else if (number % 5 == 0) divisor = 5;
+		else if (number % 7 == 0) divisor = 7;
+
+		if (divisor != -1) {
+			factorList.add(divisor);
+			// Combine this factor with the factors of the remaining number
+			factorList.addAll(factorize(number / divisor));
+		} else {
+			// It's a prime > 7
+			factorList.add(number);
+			factorList.add(1);
+		}
+		
 		return factorList;
 
 	}
@@ -93,6 +111,8 @@ public class Main {
 			else {
 				productOfRight *= factors.get(index);
 			}
+
+			index++;
 		}
 
 		// return a list containing productOfLeft and productOfRight
